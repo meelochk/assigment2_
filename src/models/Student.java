@@ -1,29 +1,21 @@
 package models;
 
-
 public class Student extends Person {
     private double gpa;
 
     private static double stipend = 36660;
 
-    public Student(){
+    public Student() {
     }
 
-    public Student(String name, String surname, double gpa){
+    public Student(String name, String surname, double gpa) {
         super(name, surname);
-
         setGpa(gpa);
     }
 
     @Override
-    public double getPaymentAmount(){
-        if(getGpa() > 2.67)
-
-            return getStipend();
-
-        else
-
-            return 0;
+    public double getPaymentAmount() {
+        return (getGpa() > 2.67) ? getStipend() : 0;
     }
 
     public static void setStipend(double stipend) {
