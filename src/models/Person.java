@@ -2,9 +2,8 @@ package models;
 
 import interfaces.Payable;
 
-
 public class Person implements Payable, Comparable<Person> {
-    private static int id_gen;
+    private static int idGenerator;
 
     private final int id;
 
@@ -14,17 +13,14 @@ public class Person implements Payable, Comparable<Person> {
 
     private String position;
 
-    public Person(){
-        this.id = ++id_gen;
-
+    public Person() {
+        this.id = ++idGenerator;
         setPosition("Student");
     }
 
-    public Person(String name, String surname){
+    public Person(String name, String surname) {
         this();
-
         setName(name);
-
         setSurname(surname);
     }
 
@@ -41,7 +37,7 @@ public class Person implements Payable, Comparable<Person> {
         this.position = position;
     }
 
-    public String getPosition(){
+    public String getPosition() {
         return position;
     }
 
@@ -53,11 +49,11 @@ public class Person implements Payable, Comparable<Person> {
         return name;
     }
 
-    public void setSurname(String surname){
+    public void setSurname(String surname) {
         this.surname = surname;
     }
 
-    public String getSurname(){
+    public String getSurname() {
         return surname;
     }
 
@@ -67,17 +63,15 @@ public class Person implements Payable, Comparable<Person> {
     }
 
     @Override
-    public int compareTo(Person o) {
-        if(this.getPaymentAmount() - o.getPaymentAmount() > 0)
-
+    public int compareTo(Person otherPerson) {
+        double difference = this.getPaymentAmount() - otherPerson.getPaymentAmount();
+        
+        if (difference > 0) {
             return 1;
-
-        else if(this.getPaymentAmount() - o.getPaymentAmount() == 0)
-
+        } else if (difference == 0) {
             return 0;
-
-        else
-
+        } else {
             return -1;
+        }
     }
 }
