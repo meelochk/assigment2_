@@ -3,14 +3,12 @@ package models;
 public class Employee extends Person {
     private double salary;
 
-    public Employee(){
+    public Employee() {
     }
 
-    public Employee(String name, String surname, String position, double salary){
+    public Employee(String name, String surname, String position, double salary) {
         super(name, surname);
-
         setPosition(position);
-
         setSalary(salary);
     }
 
@@ -28,7 +26,7 @@ public class Employee extends Person {
     }
 
     @Override
-    public void setPosition(String position){
+    public void setPosition(String position) {
         super.setPosition(position);
     }
 
